@@ -1,5 +1,6 @@
 package datatypes.numeric;
 
+import Common.Util;
 import datatypes.DataType;
 import datatypes.chars.CharValue;
 
@@ -91,7 +92,7 @@ public class NumberValue extends DataType{
 					int length = (int)(Math.random() * (precision - scale -1) + 1);
 					CharValue p1 = new CharValue(length);
 					CharValue p2 = new CharValue(scale);
-					System.out.println(length);
+					
 					StringBuilder candidate = new StringBuilder();
 					candidate.append(p1.getDigitalValue());
 					candidate.append('.');
@@ -102,6 +103,11 @@ public class NumberValue extends DataType{
 						value = candidate.toString();
 				}
 				else{
+					StringBuilder candidate = new StringBuilder("0.");
+					CharValue cv = new CharValue(precision);
+					candidate.append(Util.generateSpecString('0', (scale - precision)));
+					candidate.append(cv.getDigitalValue());
+					value = candidate.toString();
 					
 				}
 			}

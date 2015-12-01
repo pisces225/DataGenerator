@@ -42,7 +42,14 @@ public class Util {
 			default : type = (int)(Math.random() * 3);break;
 		}
 		int col = (int) (Math.random() * charList.get(type).size());
-		return (char) charList.get(type).get(col);
+		return (Character) charList.get(type).get(col);
 	}
-
+	
+	public static String generateSpecString(char a,int length){
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0;i < length;i++){
+			sb.append(a);
+		}
+		return sb.toString();
+	}
 }
